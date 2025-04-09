@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #ff7e5f, #feb47b); /* Beautiful gradient background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
+}
+
+.message {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ff6f61; /* Warm pink color */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.intro, .question, .note {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.question {
+  font-weight: bold;
+}
+
+.note {
+  font-style: italic;
+  color: #555;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  margin: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+button:active {
+  transform: scale(0.98); /* Small shrink effect when clicked */
+}
+
+button#yesButton {
+  background-color: #28a745; /* Green color for "Yes" */
+  color: white;
+}
+
+button#yesButton:hover {
+  background-color: #218838;
+}
+
+button#noButton {
+  background-color: #dc3545; /* Red color for "No" */
+  color: white;
+}
+
+button#noButton:hover {
+  background-color: #c82333;
+}
+
+button:disabled {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+}
+
+.answer {
+  margin-top: 25px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
