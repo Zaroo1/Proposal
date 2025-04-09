@@ -12,7 +12,7 @@ function showAnswer(answer) {
     // Send email notification when "Yes" is selected
     sendEmailNotification();
   } else {
-    answerDiv.innerHTML = "So sad. But know that oo matter what, I'll always cherish you. ❤️";
+    answerDiv.innerHTML = "So sad. But know that no matter what, I'll always cherish you. ❤️";
   }
   // Disable the buttons after an answer to avoid further clicks
   document.getElementById('yesButton').disabled = true;
