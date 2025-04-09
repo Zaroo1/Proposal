@@ -19,10 +19,7 @@ function showAnswer(answer) {
     answerDiv.innerHTML = "No matter what, I'll always cherish you. ❤️";
   }
 
-  // Disable the buttons after an answer
-  document.getElementById('yesButton').disabled = true;
-  document.getElementById('noButton').disabled = true;
-}
+  
 
 // Send email notification
 function sendEmailNotification() {
