@@ -1,113 +1,175 @@
+/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Background */
 body {
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(to right, #ff7e5f, #feb47b); /* Beautiful gradient background */
+  background: linear-gradient(135deg, #f9c1d1, #f38cae);
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
 
+/* Main Container */
 .container {
   text-align: center;
-  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-  padding: 30px;
+  padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  max-width: 600px;
-  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 2s ease-out;
 }
 
-.message {
-  font-size: 1.2rem;
-  color: #333;
+/* Heart Animation */
+.heart {
+  font-size: 50px;
+  color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: heartAppear 1s forwards, heartExplosion 3s 1s forwards;
+  pointer-events: none;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #ff6f61; /* Warm pink color */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+@keyframes heartAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(-50%, -50%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.5) translate(-50%, -50%);
+  }
 }
 
-.intro, .question, .note {
-  margin-bottom: 20px;
-  font-size: 1.1rem;
-  color: #333;
+@keyframes heartExplosion {
+  0% {
+    transform: scale(1.5) translate(-50%, -50%);
+  }
+  100% {
+    transform: scale(3) translate(-50%, -50%);
+    opacity: 0;
+  }
 }
 
-.question {
-  font-weight: bold;
+.heart span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #fff;
+  animation: heartNameExplosion 2s 1.5s forwards;
 }
 
-.note {
-  font-style: italic;
-  color: #555;
+/* Explosion of Name */
+@keyframes heartNameExplosion {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3) rotate(180deg);
+  }
 }
 
+/* Chalkboard Title */
+.chalkboard {
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+  font-family: 'Caveat', cursive;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+/* Typing Animation for Text */
+.typing {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 15px 0;
+  animation: typing 3s steps(40) 1s forwards, fadeInUp 1.5s ease-out;
+}
+
+/* Buttons */
 .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
   margin-top: 20px;
 }
 
 button {
-  padding: 12px 25px;
-  font-size: 1.2rem;
-  margin: 10px;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 25px;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-  transform: scale(1.1); /* Slight zoom effect */
+  transform: scale(1.1);
 }
 
-button:active {
-  transform: scale(0.98); /* Small shrink effect when clicked */
+/* Yes Button */
+.button-yes {
+  background: #8df3b7;
+  color: #333;
 }
 
-button#yesButton {
-  background-color: #28a745; /* Green color for "Yes" */
-  color: white;
+/* No Button */
+.button-no {
+  background: #f79c42;
+  color: #fff;
 }
 
-button#yesButton:hover {
-  background-color: #218838;
-}
-
-button#noButton {
-  background-color: #dc3545; /* Red color for "No" */
-  color: white;
-}
-
-button#noButton:hover {
-  background-color: #c82333;
-}
-
-button:disabled {
-  background-color: #d3d3d3;
-  cursor: not-allowed;
-}
-
+/* Answer Section */
 .answer {
-  margin-top: 25px;
-  font-size: 1.4rem;
+  margin-top: 30px;
+  font-size: 24px;
   font-weight: bold;
-  color: #007bff;
+  color: #fff;
+  animation: fadeInUp 2s ease-out;
 }
 
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  button {
-    font-size: 1rem;
-    padding: 10px 20px;
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typing Animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
