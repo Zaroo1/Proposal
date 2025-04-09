@@ -1,6 +1,6 @@
 // Initialize EmailJS with your User ID
 (function () {
-  emailjs.init("Zaroo_aziz" , "template_uknkz69"); // Your EmailJS User ID
+  emailjs.init("Zaroo_aziz"); // Your EmailJS User ID
 })();
 
 function showAnswer(answer) {
