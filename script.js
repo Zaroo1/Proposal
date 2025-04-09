@@ -13,7 +13,7 @@ function showAnswer(answer) {
   heart.style.animation = "heartAppear 1s forwards, heartExplosion 3s 1s forwards"; // Restart animation
   
   if (answer === 'yes') {
-    answerDiv.innerHTML = "She said YES! 💖 Let's grow together and see where life takes us!";
+    answerDiv.innerHTML = "Thank you for agreeing! 💖 Let's grow together and see where life takes us!";
     sendEmailNotification(); // Send email on Yes
   } else {
     answerDiv.innerHTML = "No matter what, I'll always cherish you. ❤️";
