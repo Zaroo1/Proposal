@@ -1,43 +1,57 @@
-// Initialize EmailJS with your Public Key
-(function () {
-  emailjs.init("JyJ9vd05ydbsnuQqU"); // Your actual EmailJS Public Key
-})();
+// Form submission handling
+document.getElementById('naimaForm').addEventListener('submit', function (e) {
+  e.preventDefault();
 
-function showAnswer(answer) {
-  const answerDiv = document.getElementById('answer');
-  const heart = document.getElementById('heart');
-  
-  // Heart animation trigger
-  heart.style.animation = "none"; // Reset animation
-  heart.offsetHeight; // Trigger reflow (necessary to restart animation)
-  heart.style.animation = "heartAppear 1s forwards, heartExplosion 3s 1s forwards"; // Restart animation
-  
-  if (answer === 'yes') {
-    answerDiv.innerHTML = "She said YES! 💖 Let's grow together and see where life takes us!";
-    sendEmailNotification(); // Send email on Yes
-  } else {
-    answerDiv.innerHTML = "No matter what, I'll always cherish you. ❤️";
-  }
+  fetch(this.action, {
+    method: 'POST',
+    body: new FormData(this),
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      document.getElementById('sentMessage').style.display = 'block';
+      document.getElementById('response').disabled = true;
+      showHeartsAndButterflies();
+    } else {
+      alert('Oops! Something went wrong.');
+    }
+  });
+});
 
-  // Disable the buttons after an answer
-  document.getElementById('yesButton').disabled = true;
-  document.getElementById('noButton').disabled = true;
+// Function to generate flying butterflies
+const butterflyContainer = document.querySelector('.butterflies');
+const emoji = "🦋";
+
+for (let i = 0; i < 15; i++) {
+  const span = document.createElement('span');
+  span.classList.add('butterfly');
+  span.innerText = emoji;
+  span.style.top = `${Math.random() * 100}%`;
+  span.style.left = `${Math.random() * 100}%`;
+  span.style.animationDelay = `${Math.random() * 10}s`;
+  butterflyContainer.appendChild(span);
 }
 
-// Send email notification
-function sendEmailNotification() {
-  const templateParams = {
-    to_name: "Aziz", // Your name
-    from_name: "Naima",
-    message: "Naima clicked YES — she’s ready to grow with you!",
-    reply_to: "abdulazizzaroo@gmail.com" // Your email address
-  };
+// Function to show hearts and butterflies after submission
+function showHeartsAndButterflies() {
+  // Create heart elements
+  const heart1 = document.createElement('div');
+  heart1.classList.add('heart', 'heart-1');
+  document.body.appendChild(heart1);
 
-  // Send the email using EmailJS with your Service ID and Template ID
-  emailjs.send("service_wghqy1l", "template_4dw204p", templateParams)
-    .then(function(response) {
-      console.log('Email sent successfully!', response);
-    }, function(error) {
-      console.log('Email failed to send:', error);
-    });
+  const heart2 = document.createElement('div');
+  heart2.classList.add('heart', 'heart-2');
+  document.body.appendChild(heart2);
+
+  const heart3 = document.createElement('div');
+  heart3.classList.add('heart', 'heart-3');
+  document.body.appendChild(heart3);
+
+  // Make hearts visible after submission
+  setTimeout(() => {
+    heart1.style.opacity = 1;
+    heart2.style.opacity = 1;
+    heart3.style.opacity = 1;
+  }, 500);
 }
