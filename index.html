@@ -3,29 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Will You Be With Me, Naima?</title>
+  <title>Hey Naima</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
   <div class="container">
-    <div class="heart" id="heart">&#10084;</div> <!-- Heart Element -->
-    
-    <div class="message">
-      <h1 class="chalkboard">Naima, Will You Be With Me?</h1>
-      <p class="intro typing">Every convedation we’ve shared has been amazing, and I know there’s something beautiful waiting for us. Imagine the name (Mrs. Aziz)</p>
-      <p class="intro typing">I want us to grow together, learn from each other, and see where life takes us.</p>
-      <p class="question typing">Would you be willing to start this journey with me?</p>
-      <p class="note">I’ll be so happy if we can walk this path together, even if it’s just for now. Please keep this between us for the mean time because people ruine good things 🙏🏿</p>
-      <div class="buttons">
-        <button id="yesButton" onclick="showAnswer('yes')" class="button-yes">Yes</button>
-        <button id="noButton" onclick="showAnswer('no')" class="button-no">No</button>
-      </div>
+    <div class="butterflies"></div>
+    <div class="card">
+      <h1>Hey Naima,</h1>
+      <p class="intro">I was just wondering...</p>
+      <h2>How was your day?</h2>
+      <p class="message">You're as beautiful as the butterflies flying around. This message is from Zaro, just for you. Nobody else has ever sent such a message, and I just want to see you smile. ❤️</p>
+      <form action="https://formspree.io/f/xeoavpld" method="POST" id="naimaForm">
+        <textarea name="message" placeholder="Write your response here..." id="response" required></textarea>
+        <input type="hidden" name="email" value="aazzinternethub@gmail.com" />
+        <button type="submit">Send</button>
+      </form>
+      <p class="sent-message" id="sentMessage">Thank you for sharing, Naima! 😘</p>
     </div>
-    <div class="answer" id="answer"></div>
   </div>
-  
   <script src="script.js"></script>
 </body>
 </html>
